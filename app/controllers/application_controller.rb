@@ -5,6 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :sessions
+    set :session_secret, "secret"
   end
 
   get '/' do
@@ -28,7 +30,7 @@ class ApplicationController < Sinatra::Base
   patch '/tweets/:id' do
   end
 
-  post '/tweets/:id/delete' do
+  delete '/tweets/:id/delete' do
   end
 
   get '/signup' do
